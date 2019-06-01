@@ -33,6 +33,7 @@
         color: var(--paletteColor2);
         letter-spacing: 1px;
         cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
 
         &:hover {
             background-color: var(--paletteColor7);
@@ -49,6 +50,7 @@
         font-size: 14px;
         font-weight: 300;
         resize: none;
+        font-family: Arial, Helvetica, sans-serif;
 
         &::scrollbar {
             display: none;
