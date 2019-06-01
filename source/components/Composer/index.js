@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 import avatar from 'theme/assets/lisa';
 
+import Styles from './styles.m.css';
+
 export default class Composer extends Component {
     render() {
         return (
-            <section>
+            <section className = { Styles.composer }>
                 <img src = { avatar } />
                 <form>
                     <textarea placeholder = 'Whats`s on your mind, Lisa?'></textarea>
