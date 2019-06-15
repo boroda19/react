@@ -1,0 +1,49 @@
+.like {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--paletteColor7);
+    font-size: 12px;
+    margin-top: 25px;
+
+    & .icon{
+        padding: 2px 0 3px 25px;
+        background: url(../../theme/assets/like.png) 0 50% no-repeat;
+        cursor: pointer;
+        
+
+    }
+
+    & .icon.liked{
+        background-position: 0 0;
+    }
+
+    & div{
+        background-color: var(--paletteColor11);
+        border: 1px solid var(--paletteColor12);
+        margin-top: 15px;
+        height: 24px;
+        padding: 2px 2px;
+        position: relative;
+        
+        & span {
+            padding: 3px 0 3px 25px;
+            background: url(../../theme/assets/like.png) 0 100% no-repeat;
+            display: block;
+        }
+
+        & ul {
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            z-index: 2;
+            background-color: var(--paletteColor1);
+            min-width: 200px;
+
+            & li {
+                color: var(--paletteColor2);
+                padding: 3px;
+            }
+
+        }
+
+    }
+}
