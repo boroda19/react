@@ -5,20 +5,13 @@ import Composer from 'components/Composer';
 import Post from 'components/Post';
 import StatusBar from 'components/StatusBar';
 import Spinner from 'components/Spinner';
+import { withProfile } from 'components/HOC/withProfile';
 
 import Styles from './styles.m.css';
 import { getUniqueID, delay } from 'instruments';
 
+@withProfile
 export default class Feed extends Component {
-    constructor () {
-        super();
-
-        this._createPost = this._createPost.bind(this);
-        this._setPostFetchingState = this._setPostFetchingState.bind(this);
-        this._likePost = this._likePost.bind(this);
-        this._deletePost = this._deletePost.bind(this);
-    }
-
     state = {
         posts: [
             { id: '123', comment: 'Hello', created: 1526991776849, likes: [], firstName: 'Lisa', lastName: 'Simpson'},
@@ -33,7 +26,7 @@ export default class Feed extends Component {
         });
     }
 
-    async _createPost(comment) {
+    _createPost = async (comment) => {
         const { currentUserFirstname, currentUserLastname } = this.props;
         this._setPostFetchingState(true);
         const post = {
@@ -53,7 +46,7 @@ export default class Feed extends Component {
         }));
     }
 
-    async _likePost(id) {
+    _likePost = async (id) => {
         const { currentUserFirstname, currentUserLastname } = this.props;
 
         this._setPostFetchingState(true);
@@ -82,7 +75,7 @@ export default class Feed extends Component {
         });
     }
 
-    async _deletePost(id) {
+    _deletePost = async (id) => {
         this._setPostFetchingState(true);
         await delay(800);
 
