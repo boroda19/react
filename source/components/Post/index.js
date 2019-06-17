@@ -26,15 +26,24 @@ export default class Post extends Component {
         _deletePost(id);
     }
 
+    _getCross = () => {
+        const { firstName, lastName, currentUserFirstname, currentUserLastname} = this.props;
+
+        return `${firstName} ${lastName}` === `${currentUserFirstname} ${currentUserLastname}` ? (
+            <span
+                className = { Styles.cross }
+                onClick = { this._deletePost }>
+            </span>
+        ) : null;
+    }
+
     render() {
         const { comment, created, _likePost, id, likes, firstName, lastName, avatar } = this.props;
+        const cross = this._getCross();
 
         return (
             <section className = { Styles.post }>
-                <span
-                    className = { Styles.cross }
-                    onClick = { this._deletePost }>
-                </span>
+                { cross }
                 <img src = { avatar } />
                 <a>{ `${firstName} ${lastName}` }</a>
                 <time>{ moment.unix(created).format('MMMM D h:mm:ss a') }</time>

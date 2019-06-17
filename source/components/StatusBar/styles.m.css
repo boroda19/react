@@ -33,4 +33,40 @@
         font-size: 12px;
     }
 
+    & .status {
+        background: #fff;
+        padding: 5px 20px 5px 5px;
+        border-radius: 3px;
+        left: 10px;
+        position: absolute;
+        color: #4267b2;
+        font-size: 14px;
+        font-weight: bold;
+
+        & span {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            right: 5px;
+            top: 6px;
+            border-radius: 50%;
+        }
+
+    }
+
+    & .status.online {
+        & span {
+            background: #038432;
+        }
+
+    }
+
+    & .status.offline {
+        & span {
+            background: #c80505;
+        }
+
+    }
+
 }
