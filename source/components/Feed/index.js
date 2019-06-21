@@ -27,7 +27,6 @@ export default class Feed extends Component {
         socket.on('create', (postJSON) => {
             const { data: createdPost, meta} = JSON.parse(postJSON);
             if (`${currentUserFirstname} ${currentUserLastname}` !== `${meta.authorFirstName} ${meta.authorLastName}`) {
-                console.log('create2',  `!${currentUserFirstname} ${currentUserLastname}!`, meta);
                 this.setState(({ posts }) => ({
                     posts: [ createdPost, ...posts ],
                 }));
