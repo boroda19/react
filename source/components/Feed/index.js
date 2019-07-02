@@ -4,6 +4,7 @@ import { fromTo } from 'gsap';
 
 import Catcher from 'components/Catcher';
 import Composer from 'components/Composer';
+import Counter from 'components/Counter';
 import Post from 'components/Post';
 import Postman from 'components/Postman';
 import StatusBar from 'components/StatusBar';
@@ -206,6 +207,7 @@ export default class Feed extends Component {
                     onEnter = { this._animateComposerEnter }>
                     <Composer _createPost = { this._createPost } />
                 </Transition>
+                <Counter count = { postsJSX.length } />
                 <TransitionGroup>{ postsJSX }</TransitionGroup>
                 <Transition
                     appear
