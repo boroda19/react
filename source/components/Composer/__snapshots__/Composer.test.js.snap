@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`composer component: _updateComment class methods should be invoked after change textarea value 1`] = `"Hello! I am comment"`;
+
+exports[`composer component: avatar props should be not empty 1`] = `"test-file-stub"`;
+
+exports[`composer component: currentUserFirstname props should be like config name 1`] = `"Андрей"`;

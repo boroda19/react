@@ -112,6 +112,7 @@ describe('composer component:', () => {
 
     test('avatar props should be not empty', () => {
         expect(props.avatar).not.toBe('');
+        expect(props.avatar).toMatchSnapshot();
     });
 
     test('currentUserFirstname props should be not empty', () => {
@@ -120,6 +121,7 @@ describe('composer component:', () => {
 
     test('currentUserFirstname props should be like config name', () => {
         expect(props.currentUserFirstname).toBe('Андрей');
+        expect(props.currentUserFirstname).toMatchSnapshot();
     });
 
     test('_updateComment class methods should be invoked after change textarea value', () => {
@@ -130,5 +132,6 @@ describe('composer component:', () => {
         });
         expect(_updateCommentSpy).toHaveBeenCalledTimes(2);
         expect(result.find('textarea').text()).toBe(comment);
+        expect(result.find('textarea').text()).toMatchSnapshot();
     });
 });
