@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import  { Transition } from 'react-transition-group';
 import { fromTo } from 'gsap';
+import { Link } from 'react-router-dom';
 
 import { withProfile } from 'components/HOC/withProfile';
 import { socket } from 'socket/init';
@@ -43,8 +44,10 @@ export default class StatusBar extends Component {
     }
 
     render() {
-        const { avatar, currentUserFirstname, currentUserLastname } = this.props;
+        const { avatar, currentUserFirstname, logged } = this.props;
         const { online } = this.state;
+
+        console.log('statusbar', logged);
 
         const statusStyle = cx(Styles.status, {
             [ Styles.online ]:  online,
@@ -53,6 +56,28 @@ export default class StatusBar extends Component {
         });
 
         const statusMessage = online ? 'Online' : 'Offline';
+        const loginLink =  logged                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            ? (
+                <Link
+                    to = '/feed'
+                    onClick = { this.props._setLogoutStatus }>
+                    <span>Logout</span>
+                </Link>
+            )
+            : (
+                <Link to = '/login'>
+                    <span>Login</span>
+                </Link>
+            );
+
+        const profileLink =  logged
+            ? (
+                <Link to = '/profile'>
+                    <img src = { avatar } />
+                    <span>{ currentUserFirstname }</span>
+                </Link>
+            )
+            : null;
 
         return (
             <Transition
@@ -65,12 +90,11 @@ export default class StatusBar extends Component {
                         <div>{ statusMessage }</div>
                         <span />
                     </div>
-                    <button>
-                        <img src = { avatar } />
-                        <span>{ currentUserFirstname }</span>
-                        &nbsp;
-                        <span>{ currentUserLastname }</span>
-                    </button>
+                    { profileLink }
+                    <Link to = '/feed'>
+                        <span>Feed</span>
+                    </Link>
+                    { loginLink }
                 </section>
             </Transition>
         );

@@ -5,6 +5,7 @@
     background-color: var(--paletteColor3);
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
 
     & .postInStart {
         transform: scale(.5);
